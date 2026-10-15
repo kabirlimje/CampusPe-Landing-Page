@@ -1,0 +1,5 @@
+import { Icon, Eyebrow } from "./ui.jsx";
+
+export default function AudienceSection({ id, label, title, text, action, features }) {
+  return <section className={`audience-section ${id}`} id={id}><div className="wrap audience-grid"><div className="audience-intro reveal"><Eyebrow>{label}</Eyebrow><h2 className="h-xl">{title}</h2><p className="lead">{text}</p><a className="btn btn--pill" href="#contact">{action}<Icon name="arrow"/></a></div><div className="feature-list">{features.map(([number, tag, heading, description, chip1, chip2], index) => <article className={id === "colleges" ? "feature reveal" : "step-card reveal"} key={number}><span className="step-card__n">{number}</span><div className="feature-copy"><span className="feature__tag">{tag || "CAMPUSPE WORKFLOW"}</span><h3>{heading}</h3><p>{description}</p></div><div className="feature__chips"><span>{chip1 || (index === 0 ? "Live in under 5 min" : "Smart shortlist")}</span><span>{chip2 || "Skills + location"}</span></div></article>)}</div></div></section>;
+}
